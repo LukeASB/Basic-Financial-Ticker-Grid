@@ -1,0 +1,19 @@
+{
+  "name": "uitest_financial_ticker_lsb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testserver.js",
+  "scripts": {
+    "start": "tsc && nodemon index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.9",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
