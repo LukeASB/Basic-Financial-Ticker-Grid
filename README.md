@@ -1,6 +1,4 @@
-![Basic Financial Ticker Grid UI Screenshot](https://github.com/LukeASB/Basic-Financial-Ticker-Grid-UI/blob/main/BasicFinanicalTickerGridUI_Screenshot.png])
-![Basic Financial Ticker Grid UI Screenshot](https://ibb.co/j6MvmvB])
-
+![Basic Financial Ticker Grid UI Screenshot](https://raw.githubusercontent.com/LukeASB/Basic-Financial-Ticker-Grid-UI/main/BasicFinanicalTickerGridUI_Screenshot.png)
 
 # Basic-Financial-Ticker-Grid-UI
 UI Only - Basic Financial Ticker Grid that uses CSV data for a Frontend Tech Test.
