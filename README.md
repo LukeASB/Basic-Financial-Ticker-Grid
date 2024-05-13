@@ -8,7 +8,7 @@ UI Only - Basic Financial Ticker Grid that uses CSV data for a Frontend Tech Tes
 
 Available for anyone to use and build on.
 
-# What's Is
+# What Is
 Basic Financial Ticker Grid that loads and uses CSV Data: /public/data/snapshot.csv, /public/data/deltas.csv.
 
 /public/data/snapshot.csv is the data that's loaded and parsed into the initial view.
