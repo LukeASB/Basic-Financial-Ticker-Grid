@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 
-const snapshotFile = "./csv/snapshot.csv";
-const deltasFile = "./csv/deltas.csv";
+const snapshotFile = "../csv/snapshot.csv";
+const deltasFile = "../csv/deltas.csv";
 
 exports.getDeltas = async () => {
     const data = await getFile(deltasFile);

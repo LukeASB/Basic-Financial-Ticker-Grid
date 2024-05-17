@@ -2,7 +2,7 @@ const config = require("config");
 const express = require("express");
 
 const app = express();
-const name = config.get("name");
+const appName = config.get("name");
 const port = config.get("port");
 const { appRoutes } = require("./routes/routes");
 
@@ -13,5 +13,5 @@ app.use(router);
 
 app.listen(port, err => {
     if (err) return console.log(`Can't listen on port: ${port}`);
-    console.log(`Executing ${name}. Server is listening on: http://localhost:${port}`);
+    console.log(`Executing ${appName}. Server is listening on: http://localhost:${port}`);
 })
