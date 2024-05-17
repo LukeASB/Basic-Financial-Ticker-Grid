@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "dev": "tsc && nodemon src/app.ts"
+    "start": "tsc && nodemon src/app.ts"
   },
   "author": "Luke Sloane-Bulger",
   "license": "ISC",
