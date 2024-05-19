@@ -6,6 +6,8 @@ Found this useful?
 # Basic-Financial-Ticker-Grid
 Uses NodeJS with TypeScript to generate two endpoints: /getDeltas and /getSnapshot with the Express package.
 
+Follows MVC (Model View Controller) architecture. Uses Dependency Injection to inject the Model and View where required.
+
 # How To Start
 - npm install
 - npm start

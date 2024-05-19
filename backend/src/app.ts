@@ -1,15 +1,23 @@
-const config = require("config");
-const express = require("express");
+import config from "config"
+import express, { Express, Request, Response, NextFunction } from "express";
+import Controller from "./controller/controller";
+import Routes from "./routes/routes";
+import Model from "./model/model";
+import View from "./view/view";
 
 const app = express();
-const appName = config.get("name");
+const name: string = config.get("name");
 const port = config.get("port");
-const { appRoutes } = require("./routes/routes");
+
+const model = new Model(config.get("snapshotFile"), config.get("deltasFile"));
+const view = new View;
+const controller = new Controller;
+const routes = new Routes(controller, model, view);
 
 const router = express.Router();
-appRoutes(appName, router)
+routes.appRoutes(name, router)
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {    
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -17,10 +25,6 @@ app.use((req, res, next) => {
   });
 app.use(router);
 
-
-
-
-app.listen(port, err => {
-    if (err) return console.log(`Can't listen on port: ${port}`);
-    console.log(`Executing ${appName}. Server is listening on: http://localhost:${port}`);
+app.listen(port, () => {
+    console.log(`Executing ${name}. Server is listening on: http://localhost:${port}`);
 })
