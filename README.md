@@ -3,13 +3,11 @@
 Found this useful?
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/lukesb)
 
-# Basic-Financial-Ticker-Grid-UI
-UI Only - Basic Financial Ticker Grid that uses CSV data for a Frontend Tech Test.
+# Basic-Financial-Ticker-Grid
+Frontend - Basic Financial Ticker Grid that uses data to generate basic financial ticker grid.
+Backend - NodeJS backend that supplies the snapshot and deltas data for the finanical ticker grid.
 
 Available for anyone to use and build on.
-
-# What Is
-Basic Financial Ticker Grid that loads and uses CSV Data: /public/data/snapshot.csv, /public/data/deltas.csv.
 
 /public/data/snapshot.csv is the data that's loaded and parsed into the initial view.
 
@@ -20,18 +18,6 @@ When only a number exists on a line, that amount of time in miliseconds is waite
 When the final set of deltas is processed, the application returns to the start of the file and repeats. This is done until the application is terminated.
 
 # Tech Stack
-- TypeScript/JavaScript
+- TypeScript/JavaScript/NodeJS
 - CSS
 - HTML 
-
-# Workflow
-- Index.main()
-- FinancialTrackerGridView.makeGrid() - Create the table elements for header/body, and add relevant data.
-- FinancialTrackerGridView.getData() - Get the Snapshot and Delta CSV files and render them.
-- updateGrid() - Update the grid data elements.
-- updateDataLoop() - Loops until page is closed.
-
-# How To Start
-- npm install
-- npm start
-- Go to http://localhost:{port}, e.g http://localhost:3000 (The default port in the config/default.json is 3000)

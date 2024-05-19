@@ -1,0 +1,6 @@
+{
+    "name": "Basic-Financial-Ticker-Grid-Backend",
+    "port": 8080,
+    "snapshotFile": "./src/csv/snapshot.csv",
+    "deltasFile": "./src/csv/deltas.csv"
+}

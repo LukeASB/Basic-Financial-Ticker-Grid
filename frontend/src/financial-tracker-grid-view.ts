@@ -164,19 +164,20 @@ export class FinancialTrackerGridView {
      */
     private async getData() {
         const getSnapshot = async () => {
-            const getSnapshot = await fetch(this.snapshotFile);
-            const snapshotCsvData = await getSnapshot.text();
-            const [headers, ...stocks] = snapshotCsvData.split(`\n`);
+            const getSnapshot = await fetch("http://localhost:8080/getSnapshot");
+            const data = await getSnapshot.json();
+            const snapshotCsvData = data.snapshot;
+            const headers = snapshotCsvData.headers;
+            const stocks = snapshotCsvData.stocks;
             this.headers = headers.split(',');
-            this.tableData = stocks.filter(stock => stock !== '').map(stock => {
+            this.tableData = stocks.filter((stock: string) => stock !== '').map((stock: string) => {
                 const [name, companyName, price, change, chgPercent, mktCap] = stock.split(`,`);
                 this.companies.push(name);
                 return new GridData({ change: +change, chgPercent, companyName, mktCap,name, price: +price });
             });
         }
         const getDelta = async () => {
-            const parseDelta = async (text: string) => {
-                const lines: string[][] = text.split(`\n`).map(line => line.split(','));
+            const parseDelta = async (lines: string[]) => {
                 const getSingleNumberInDeltaCsv = () => {
                     lines.forEach(el => {
                         if (el[0] === '') return
@@ -186,7 +187,7 @@ export class FinancialTrackerGridView {
 
                 getSingleNumberInDeltaCsv();
 
-                const updates = lines.filter((line: string[]) => line.length > 1);
+                const updates = lines.filter((line: string) => line.length > 1);
                 let [currentCompany, currentDelta] = [0, 1];
                 await this.timeout(1500); // Figure out why first set of delta is updating first then delaying... Somewhere here.
                 updates.forEach(async update => {
@@ -205,9 +206,11 @@ export class FinancialTrackerGridView {
                 })
                 this.updateDataLoop();
             }
+            const getDeltas = await fetch("http://localhost:8080/getDeltas");
+            const data = await getDeltas.json();
+            const deltaData = data.deltas.lines;
 
-
-            fetch(this.deltasFile).then(res => res.text()).then(deltas => parseDelta(deltas));
+            parseDelta(deltaData);
         }
         
         await getSnapshot();
